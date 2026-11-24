@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/logo.png" alt="HAMMOUR" height="96">
+<img src="docs/banner.png" alt="HAMMOUR" width="100%">
 
 # HAMMOUR
 
@@ -86,6 +86,8 @@ python generate_sample_pcap.py          #  →  sample_factory.pcap
 
 Or use real public ICS captures: **ITI/ICS-Security-Tools**, **4SICS**, **ICS-PCAP-Challenges**.
 
+> Repo: https://github.com/Levi-CYS/HAMMOUR
+
 ---
 
 ## 🔬 How it works
@@ -137,6 +139,6 @@ hammour/
 
 <div align="center">
 
-Built by **Murtadha AlAbbas** - OT/ICS Security · Industrial Resilience
+Built by **Levi-CYS** - OT/ICS Security · Industrial Resilience
 
 </div>

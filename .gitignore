@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.html
+network.json
+hunt.json
+vuln.json
+.DS_Store
+.idea/
+.vscode/

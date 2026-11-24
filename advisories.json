@@ -1,0 +1,122 @@
+{
+  "_about": "HAMMOUR advisory database. Seeded with real, verified ICS CVEs and protocol-level weaknesses. Refreshable from CISA ICS Advisories (CSAF) and vendor PSIRTs. CVSS values and advisory IDs verified against official sources.",
+  "cves": [
+    {
+      "id": "CVE-2020-15782",
+      "vendor": "Siemens",
+      "products": ["S7-1200", "S7-1500", "SIMATIC"],
+      "protocol_hint": "S7comm",
+      "cvss": 8.1,
+      "severity": "high",
+      "kev": false,
+      "cwe": "CWE-119 (improper memory bounds)",
+      "title": "Memory protection bypass → native code execution on the CPU",
+      "advisory": "ICSA-21-152-01 / Siemens SSA-434534",
+      "fix": "Update the CPU firmware to the fixed version listed in SSA-434534",
+      "nca": ["1-5-3 (change management: validate changes)", "2-11-1 (logging & monitoring)"]
+    },
+    {
+      "id": "CVE-2021-22779",
+      "vendor": "Schneider",
+      "products": ["Modicon M340", "Modicon M580", "Modicon"],
+      "protocol_hint": "Modbus",
+      "cvss": 8.1,
+      "severity": "high",
+      "kev": false,
+      "cwe": "CWE-287 (improper authentication)",
+      "title": "UMAS authentication bypass — unauthenticated read/write to the PLC",
+      "advisory": "ICSA-21-194-02",
+      "fix": "Apply Schneider firmware fix; enforce application password and segment the PLC",
+      "nca": ["2-2-1 (identity & access to OT)", "2-4-1-9 (no direct corporate-to-OT)"]
+    },
+    {
+      "id": "CVE-2021-22681",
+      "vendor": "Rockwell",
+      "products": ["ControlLogix", "CompactLogix", "Logix", "Allen-Bradley"],
+      "protocol_hint": "EtherNet/IP",
+      "cvss": 10.0,
+      "severity": "critical",
+      "kev": false,
+      "cwe": "CWE-321 (hard-coded cryptographic key)",
+      "title": "Hard-coded key lets an attacker bypass auth and change PLC config/code",
+      "advisory": "ICSA-21-056-03",
+      "fix": "Update firmware; restrict traffic to the controller and monitor Studio 5000 sessions",
+      "nca": ["2-2-1 (identity & access to OT)", "1-5-3 (change management)"]
+    },
+    {
+      "id": "CVE-2022-38465",
+      "vendor": "Siemens",
+      "products": ["S7-1200", "S7-1500", "SIMATIC"],
+      "protocol_hint": "S7comm",
+      "cvss": 9.3,
+      "severity": "critical",
+      "kev": false,
+      "cwe": "CWE-321 (hard-coded / global cryptographic key)",
+      "title": "Global private key extractable — decrypt protected config and bypass protections",
+      "advisory": "ICSA-22-286-04 / Siemens SSA-568427",
+      "fix": "Update to TIA Portal V18 + fixed firmware; rotate the per-device key",
+      "nca": ["2-2-1 (identity & access to OT)", "1-5-3 (change management)"]
+    },
+    {
+      "id": "CVE-2015-5374",
+      "vendor": "Siemens",
+      "products": ["SIPROTEC"],
+      "require_model": true,
+      "cvss": 7.5,
+      "severity": "high",
+      "kev": true,
+      "cwe": "CWE-400 (uncontrolled resource consumption / DoS)",
+      "title": "Crafted packets to the EN100 module crash the protection relay (DoS)",
+      "advisory": "ICSA-15-202-01 (CISA Known Exploited — Industroyer)",
+      "fix": "Update the EN100 Ethernet module firmware; segment the relay network",
+      "nca": ["2-11-1 (logging & monitoring)", "2-4-1-2 (zone segmentation)"]
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "OT-MODBUS-NOAUTH",
+      "protocol": "Modbus",
+      "severity": "high",
+      "cwe": "CWE-306 (missing authentication for critical function)",
+      "title": "Modbus has no authentication — any host can read or command the device",
+      "fix": "Cannot be patched (protocol design). Segment, allow-list sources, and monitor writes (Hunt)",
+      "nca": ["2-2-1 (identity & access to OT)", "2-4-1-9 (no direct corporate-to-OT)"]
+    },
+    {
+      "id": "OT-S7-NOAUTH",
+      "protocol": "S7comm",
+      "severity": "high",
+      "cwe": "CWE-306 (missing authentication for critical function)",
+      "title": "S7comm (classic) has weak/no authentication — STOP and program download are unauthenticated",
+      "fix": "Enable access protection where supported; segment and monitor program changes (Hunt)",
+      "nca": ["2-2-1 (identity & access to OT)", "1-5-3 (change management)"]
+    },
+    {
+      "id": "OT-DNP3-NOAUTH",
+      "protocol": "DNP3",
+      "severity": "medium",
+      "cwe": "CWE-306 (missing authentication for critical function)",
+      "title": "DNP3 without Secure Authentication — control commands are unauthenticated",
+      "fix": "Enable DNP3 Secure Authentication (SAv5); segment and monitor",
+      "nca": ["2-2-1 (identity & access to OT)", "2-11-1 (logging & monitoring)"]
+    },
+    {
+      "id": "OT-ENIP-NOAUTH",
+      "protocol": "EtherNet/IP",
+      "severity": "medium",
+      "cwe": "CWE-306 (missing authentication for critical function)",
+      "title": "EtherNet/IP (CIP) has no built-in authentication for most services",
+      "fix": "Use CIP Security where supported; segment and monitor",
+      "nca": ["2-2-1 (identity & access to OT)", "2-4-1-9 (no direct corporate-to-OT)"]
+    },
+    {
+      "id": "OT-CLEARTEXT",
+      "protocol": "*",
+      "severity": "low",
+      "cwe": "CWE-319 (cleartext transmission)",
+      "title": "OT protocol traffic is unencrypted — can be sniffed and modified in transit",
+      "fix": "Isolate OT networks; where supported use encrypted variants; monitor for tampering",
+      "nca": ["2-4-1-2 (zone segmentation)", "2-11-1 (logging & monitoring)"]
+    }
+  ]
+}

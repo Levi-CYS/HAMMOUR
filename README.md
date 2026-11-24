@@ -137,8 +137,6 @@ hammour/
 
 <div align="center">
 
-Built by **[Your Name]** - OT/ICS Security · Industrial Resilience
-
-⭐ If this is useful, consider starring the repo.
+Built by **Murtadha AlAbbas** - OT/ICS Security · Industrial Resilience
 
 </div>

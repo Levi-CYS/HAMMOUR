@@ -4,7 +4,7 @@
 
 # HAMMOUR
 
-### Passive OT/ICS Security Platform — map, hunt and assess an industrial network from a single PCAP.
+### Passive OT/ICS Security Platform - map, hunt and assess an industrial network from a single PCAP.
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-web_app-000000?logo=flask&logoColor=white)](#)
@@ -22,7 +22,7 @@
 
 ## 🛰️ What is HAMMOUR?
 
-Industrial networks — power, water, oil, manufacturing — run on devices (PLCs, SCADA, HMIs) built for reliability, **not security**. Their protocols often have no authentication and no encryption, and active scanning can crash fragile equipment.
+Industrial networks - power, water, oil, manufacturing - run on devices (PLCs, SCADA, HMIs) built for reliability, **not security**. Their protocols often have no authentication and no encryption, and active scanning can crash fragile equipment.
 
 **HAMMOUR is 100% passive.** It reads a copy of the traffic (a PCAP) and never transmits a single packet, then answers three questions through three modules:
 
@@ -32,7 +32,7 @@ Industrial networks — power, water, oil, manufacturing — run on devices (PLC
 | 🎯 **Hunt** | *What's dangerous?* | Decodes OT commands (S7comm, Modbus, DNP3, EtherNet/IP), runs rules + a **behavioural baseline**, and correlates attack chains. |
 | 🛡️ **Vuln** | *What's vulnerable?* | Matches assets to **real CVEs** + protocol weaknesses, prioritised by CVSS + KEV + criticality. |
 
-Every finding is mapped to **MITRE ATT&CK for ICS** and **NCA OTCC** controls, folded into a single **security posture score (0–100)**, and exportable as a **one-click compliance report**.
+Every finding is mapped to **MITRE ATT&CK for ICS** and **NCA OTCC** controls, folded into a single **security posture score (0-100)**, and exportable as a **one-click compliance report**.
 
 ---
 
@@ -40,10 +40,10 @@ Every finding is mapped to **MITRE ATT&CK for ICS** and **NCA OTCC** controls, f
 
 <div align="center">
 
-**Map — Purdue-layered network - shape = role, colour = risk**
+**Map - Purdue-layered network - shape = role, colour = risk**
 <img src="docs/map.png" width="90%">
 
-**Hunt — prioritised threats mapped to ATT&CK + NCA** &nbsp;·&nbsp; **Vuln — CVEs + weaknesses**
+**Hunt - prioritised threats mapped to ATT&CK + NCA** &nbsp;·&nbsp; **Vuln - CVEs + weaknesses**
 <img src="docs/hunt.png" width="48%"> <img src="docs/vuln.png" width="48%">
 
 </div>
@@ -56,11 +56,11 @@ Every finding is mapped to **MITRE ATT&CK for ICS** and **NCA OTCC** controls, f
 
 Three different questions, kept in three modules:
 
-- **Exposure** (Map) — a path *could* exist (IT → PLC).
-- **Threat** (Hunt) — someone is *doing* something dangerous now.
-- **Vulnerability** (Vuln) — the device carries a *known flaw* (CVE).
+- **Exposure** (Map) - a path *could* exist (IT → PLC).
+- **Threat** (Hunt) - someone is *doing* something dangerous now.
+- **Vulnerability** (Vuln) - the device carries a *known flaw* (CVE).
 
-**Passive server detection:** the server (PLC) listens on a fixed low port (502, 102); the client (SCADA) gets a random high port — so `min(src_port, dst_port)` is the server. One comparison separates controllers from supervisors, with no probing.
+**Passive server detection:** the server (PLC) listens on a fixed low port (502, 102); the client (SCADA) gets a random high port - so `min(src_port, dst_port)` is the server. One comparison separates controllers from supervisors, with no probing.
 
 ---
 
@@ -69,7 +69,7 @@ Three different questions, kept in three modules:
 ```bash
 pip install -r requirements.txt
 
-# Web app — upload a .pcap in the browser
+# Web app - upload a .pcap in the browser
 python app.py            #  →  http://127.0.0.1:5000
 
 # Or the command line
@@ -120,7 +120,7 @@ hammour/
 
 ## ⚠️ Limitations (by design, stated honestly)
 
-- **Passive only** — truly silent (ARP-only) devices stay Unknown.
+- **Passive only** - truly silent (ARP-only) devices stay Unknown.
 - **Firmware** isn't always visible → product CVEs are *potential* until confirmed.
 - Deep command decode for **S7comm / Modbus / DNP3 / EtherNet-IP**; other protocols as generic access.
 - Advisory DB is **seeded with real CVEs** and refreshable from CISA CSAF.
@@ -129,7 +129,7 @@ hammour/
 
 ## 📚 References
 
-- **NCA OTCC** — Operational Technology Cybersecurity Controls
+- **NCA OTCC** - Operational Technology Cybersecurity Controls
 - **MITRE ATT&CK for ICS**
 - Real CVEs used: CVE-2020-15782, CVE-2022-38465 (Siemens S7), CVE-2021-22779 (Schneider Modicon), CVE-2021-22681 (Rockwell Logix), CVE-2015-5374 (Siemens SIPROTEC · CISA KEV)
 
@@ -137,7 +137,7 @@ hammour/
 
 <div align="center">
 
-Built by **[Your Name]** — OT/ICS Security · Industrial Resilience
+Built by **[Your Name]** - OT/ICS Security · Industrial Resilience
 
 ⭐ If this is useful, consider starring the repo.
 
